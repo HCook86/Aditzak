@@ -1,0 +1,2 @@
+# Aditzak
+Aditzak analizatzeko aplikazioa
