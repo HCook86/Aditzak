@@ -1,1 +1,19 @@
+{
+    "Indikatiboa": {
+        "Oraina":["","","","",""],
+        "Iragana":["","","","",""]
+    },
+    "Baldintza":{
+        "Oraina":["","","",""],
+        "Iagana":[]
+    },
+    "Subjuntiboa":{
+        "Oraina":[],
+        "Iagana":[]
+    },
+    "Agintera":{
+        "Oraina":[],
+        "Iagana":[]
+    }
 
+}
