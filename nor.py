@@ -7,7 +7,7 @@ def nor(aditza):
     info = hand.read()
     NOR = loads(info)
 
-    erantzuna = None
+    erantzuna = False
     for element in NOR:
         tipo = NOR[element]
         for denbora in tipo:
