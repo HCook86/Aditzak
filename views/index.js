@@ -1,5 +1,4 @@
 $(function(){
-
     eel.expose(say_hello_js);               // Expose this function to Python
     function say_hello_js(x) {
     console.log("Hello from " + x);
@@ -10,5 +9,10 @@ $(function(){
     $("#btn").click(function(){
         eel.handleinput($("#inp").val());
         $('#inp').val('');
+    });
+    $(document).on('keypress',function(e) {
+        if(e.which == 13) {
+            $("#btn").click();
+        }
     });
 }); 
