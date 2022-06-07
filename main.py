@@ -9,7 +9,7 @@ class verb:
     ondorioa = False
     indikatiboa = False
 
-aditza = str("badiezaiek")
+aditza = str("dizkioguke")
 
 def nnk(aditz):
     return None
@@ -43,6 +43,19 @@ def checkForKe(aditz):
 
     return False
 
+def ahaleraORondorioa(aditz):
+    if checkForKe(aditz):
+        fl = aditz.verb[:5]
+        
+        if fl == "dieza":
+            aditz.ahalera = True
+        else:
+            tl = aditz.verb[:2]
+            if tl in {"na", "da", "ga", "za", "de", "di"}:
+                aditz.ahalera = True
+            else:
+                aditz.ondorioa = True
+
 def main(verb):
     if nnk(verb) != None:
         return nnk(verb)
@@ -52,10 +65,8 @@ def main(verb):
     if not checkForKe(verb) and not verb.baldintza:
         verb.indikatiboa = True
 
-    print(checkForKe(verb))
+    ahaleraORondorioa(verb)
 
-    print(verb.baldintza)
-
-    return "xd"
+    return verb.ahalera
 
 print(main(verb(aditza)))
