@@ -14,6 +14,6 @@ def nor(aditza):
             verbos = tipo[denbora]
             for verb in verbos.items():
                 if aditza == verb[1]:
-                    erantzuna = element
+                    erantzuna = {"Kasua":"NOR", "Modua":element, "Denbora":denbora, "Nor":verb[0], "Nori":None, "Nork":None}
     return erantzuna
 print(nor(ADITZA))
