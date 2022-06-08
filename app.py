@@ -43,7 +43,27 @@ def nor(aditz):
     return erantzuna
 
 def nornork(aditz):
-    return None
+    hand = open("nk3.json", "r")
+    info = hand.read()
+    NK3 = loads(info)
+    
+    erantzuna = None
+    for element in NK3:
+        tipo = NK3[element]
+        for zenbaki in tipo:
+            verbos = tipo[zenbaki]
+            for tiempo in verbos:
+                pertsonak = verbos[tiempo]
+                for pertsona in pertsonak.items():
+                    if aditz == pertsona[1]:
+                        sujeto = None
+                        print("a")
+                        if tiempo == "Singularra":
+                            sujeto = "hura"
+                        elif tiempo == "Plurala":
+                            sujeto = "haiek"
+                        erantzuna = {"Aditza":aditz,"Kasua":"NOR-NORK", "Modua":element, "Denbora":zenbaki, "Nor":sujeto, "Nori":None, "Nork":pertsona[0]}
+    return erantzuna
 
 def baldintza(aditz):
     if aditz.verb[:2] == "ba":
@@ -751,4 +771,4 @@ def main(verb):
 def analyse(aditz):
     return main(verb(aditz))
 
-print(analyse("diezaioket"))
+print(analyse("nuen"))
