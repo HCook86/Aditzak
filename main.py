@@ -1,5 +1,4 @@
 from json import loads
-from unittest import addModuleCleanup
 
 class verb:
     def __init__(self, verb):
