@@ -1,4 +1,5 @@
 from json import loads
+from unittest import addModuleCleanup
 
 class verb:
     def __init__(self, verb):
@@ -20,7 +21,7 @@ class verb:
     nori = None
     nork = None
 
-aditza = str("bagenie")
+aditza = str("dezakezu")
 
 def remove_prefix(text, prefix):
     if text.startswith(prefix):
@@ -486,6 +487,75 @@ def baldintzaPersonas(aditz):
             if v == "e":
                 aditz.nori = "haiei"
 
+def ahaleraPersonas(aditz):
+    if aditz.ahalera:
+        
+        v = aditz.verb
+        if aditz.ni:
+            
+            aditz.teend = False
+
+            if v.endswith("te"):
+                aditz.teend = True
+                v = v.removesuffix("te")
+
+            if v.startswith("naki"):
+                aditz.nor = "ni"
+            if v.startswith("gakizki"):
+                aditz.nor = "gu"
+            if v.startswith("daki") and not v.startswith("dakizki"):
+                aditz.nor = "hura"
+            if v.startswith("dakizki"):
+                aditz.nor = "haiek"
+            if v.startswith("zakizki") and aditz.teend:
+                aditz.nor = "zuek"
+            elif v.startswith("zakizki"):
+                aditz.nor = "zu"
+
+            if v.endswith("dake"):
+                aditz.nori = "niri"
+            if v.endswith("oke"):
+                aditz.nori = "hari"
+            if v.endswith("guke"):
+                aditz.nori = "guri"
+            if v.endswith("zuke"):
+                aditz.nori = "zuri"
+            if v.endswith("zueke"):
+                aditz.nori = "zuei"
+            if v.endswith("eke") and not v.endswith("zueke"):
+                aditz.nori = "haiei"
+
+        if aditz.nk:
+
+            if v.startswith("nazake"):
+                aditz.nor = "ni"
+            if v.startswith("dezake"):
+                aditz.nor = "hura"
+            if v.startswith("gaitzake"):
+                aditz.nor = "gu"
+            if v.startswith("zaitzake") and not v.startswith("zaitzakete"):
+                aditz.nor = "zu"
+            if v.startswith("zaitzakete"):
+                aditz.nor = "zuek"
+            if v.startswith("ditzake"):
+                aditz.nor = "haiek"
+
+            if v.endswith("t"):
+                aditz.nork = "nik"
+            if v.endswith("zake") or v.endswith("zakete"):
+                aditz.nork = "hark"
+            if v.endswith("gu"):
+                aditz.nork = "guk"
+            if v.endswith("zu"):
+                aditz.nork = "zuk"
+            if v.endswith("zue"):
+                aditz.nork = "zuek"
+            if v.endswith("te"):
+                aditz.nork = "haiek"
+
+        if aditz.nik:
+            pass
+
 def main(verb):
 
     if nor(verb) != None:
@@ -506,6 +576,8 @@ def main(verb):
     indikativoPersonas(verb)
 
     baldintzaPersonas(verb)
+
+    ahaleraPersonas(verb)
 
     return (verb.ahalera, verb.ondorioa, verb.indikatiboa, verb.baldintza, "pers:", verb.nor, verb.nori, verb.nork)
 
