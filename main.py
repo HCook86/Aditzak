@@ -20,7 +20,7 @@ class verb:
     nori = None
     nork = None
 
-aditza = str("genizkizuen")
+aditza = str("banintzaizkizuete")
 
 def remove_prefix(text, prefix):
     if text.startswith(prefix):
@@ -239,7 +239,7 @@ def indikativoPersonas(aditz):
                 aditz.nori =  "zuri"
             if v.endswith("zue"):
                 aditz.nori =  "zuei"
-            if v.endswith("e"):
+            if v.endswith("e") and not v.endswith("zue"):
                 aditz.nori =  "haiei"
 
         if aditz.nk:
@@ -359,6 +359,77 @@ def indikativoPersonas(aditz):
                 if v == "e":
                     aditz.nori = "haiei"
 
+def baldintzaPersonas(aditz):
+    if aditz.baldintza:
+
+        v = aditz.verb
+        v = remove_prefix(v, "ba")
+        if aditz.ni:
+            
+            aditz.teend = False
+
+            if v.endswith("te"):
+                aditz.teend = True
+                v = v.removesuffix("te")
+
+            if v.startswith("nintzai"):
+                aditz.nor = "ni"
+            if v.startswith("litzaizki"):
+                aditz.nor = "haiek"
+            elif v.startswith("litzai"):
+                aditz.nor = "hura"
+            if v.startswith("gintzaizki"):
+                aditz.nor = "gu"
+            if v.startswith("zintzaizki") and aditz.teend:
+                aditz.nor = "zuek"
+            if v.startswith("zintzaizki") and not aditz.teend:
+                aditz.nor = "zu"
+
+            if v.endswith("t") or v.endswith("da"):
+                aditz.nori = "niri"
+            if v.endswith("o"):
+                aditz.nori = "hari"
+            if v.endswith("gu"):
+                aditz.nori = "guri"
+            if v.endswith("zu"):
+                aditz.nori = "zuri"
+            if v.endswith("zue"):
+                aditz.nori = "zuei"
+            if v.endswith("e") and not v.endswith("zue"):
+                aditz.nori = "haiei"
+
+            print(aditz.nor, aditz.nori, aditz.nork, v)
+        
+        if aditz.nk:
+            
+            aditz.teend = False
+
+            v = v.removesuffix("t")
+            v = v.removesuffix("gu")
+            v = v.removesuffix("zu")
+            v = v.removesuffix("zue")
+            v = v.removesuffix("te")
+
+            if v.endswith("te"):
+                aditz.teend = True
+            
+            v = aditz.verb
+            v = remove_prefix(v, "ba")
+
+            if v.startswith("nindu"):
+                aditz.nor = "ni"
+            if v.startswith("gintu"):
+                aditz.nor = "gu"
+            if v.startswith("zintu") and aditz.teend:
+                aditz.nor = "zuek"
+            elif v.startswith("zintu"):
+                aditz.nor = "zu"
+
+            #solo esta hecho en nor del nl del baldintza falta decir el nork
+        
+        if aditz.nik:
+            pass
+
 def main(verb):
 
     if nor(verb) != None:
@@ -377,6 +448,8 @@ def main(verb):
     analisisCaso(verb)
 
     indikativoPersonas(verb)
+
+    baldintzaPersonas(verb)
 
     return (verb.ahalera, verb.ondorioa, verb.indikatiboa, verb.baldintza, "pers:", verb.nor, verb.nori, verb.nork)
 
