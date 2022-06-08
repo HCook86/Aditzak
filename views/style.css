@@ -4,6 +4,11 @@
     top: 0%;
     padding: 20px;
     font-size: 5vh;
+    color:#1e81b0;
+}
+.modal-content{
+    width: 180%;
+    left: -40%;
 }
 #input-container{
     margin-top: 15%;
@@ -12,4 +17,7 @@
 #input-group{
     width: 80%;
     margin: auto;
+}
+.clickable{
+    cursor: pointer;
 }
