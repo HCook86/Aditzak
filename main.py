@@ -20,7 +20,7 @@ class verb:
     nori = None
     nork = None
 
-aditza = str("banintzaizkizuete")
+aditza = str("bagenie")
 
 def remove_prefix(text, prefix):
     if text.startswith(prefix):
@@ -397,24 +397,25 @@ def baldintzaPersonas(aditz):
                 aditz.nori = "zuei"
             if v.endswith("e") and not v.endswith("zue"):
                 aditz.nori = "haiei"
-
-            print(aditz.nor, aditz.nori, aditz.nork, v)
         
         if aditz.nk:
             
             aditz.teend = False
 
-            v = v.removesuffix("t")
-            v = v.removesuffix("gu")
-            v = v.removesuffix("zu")
-            v = v.removesuffix("zue")
-            v = v.removesuffix("te")
+            v = v.removesuffix("tet")
+            v = v.removesuffix("tegu")
+            v = v.removesuffix("tezu")
+            v = v.removesuffix("tezue")
+            v = v.removesuffix("tete")
 
-            if v.endswith("te"):
+            if v.endswith("z") or v.endswith("zte"):
                 aditz.teend = True
             
-            v = aditz.verb
-            v = remove_prefix(v, "ba")
+            if not v.endswith("zte"):
+                v = aditz.verb
+                v = remove_prefix(v, "ba")
+            else:
+                v = v.removesuffix("zte")
 
             if v.startswith("nindu"):
                 aditz.nor = "ni"
@@ -425,10 +426,65 @@ def baldintzaPersonas(aditz):
             elif v.startswith("zintu"):
                 aditz.nor = "zu"
 
-            #solo esta hecho en nor del nl del baldintza falta decir el nork
+            if v.endswith("t"):
+                aditz.nork = "nik"
+            if v.endswith("u") and not v.endswith("gu") and not v.endswith("zu"):
+                aditz.nork = "hark"
+            if v.endswith("gu"):
+                aditz.nork = "guk"
+            if v.endswith("zu"):
+                aditz.nork = "zuk"
+            if v.endswith("zue"):
+                aditz.nork = "zuek"
+            if v.endswith("te"):
+                aditz.nork = "haiek"
         
         if aditz.nik:
-            pass
+            
+            aditz.teend = False
+
+            if v.endswith("te"):
+                aditz.teend = True
+                v = v.removesuffix("te")
+
+            if v.startswith("n"):
+                aditz.nork = "nik"
+                v = remove_prefix(v, "n")
+            if v.startswith("gen"):
+                aditz.nork = "guk"
+                v = remove_prefix(v, "gen")
+            if v.startswith("l") and aditz.teend:
+                aditz.nork = "haiek"
+                v = remove_prefix(v, "l")
+            elif v.startswith("l"):
+                aditz.nork = "hark"
+                v = remove_prefix(v, "l")
+            if v.startswith("zen") and aditz.teend:
+                aditz.nork = "zuek"
+                v = remove_prefix(v, "zen")
+            elif v.startswith("zen"):
+                aditz.nork = "zuk"
+                v = remove_prefix(v, "zen")
+
+            if v.startswith("izki"):
+                aditz.nor = "plu"
+                v = remove_prefix(v, "izki")
+            else:
+                aditz.nor = "sin"
+                v = remove_prefix(v, "i")
+
+            if v == "t" or v == "da":
+                aditz.nori = "niri"
+            if v == "o":
+                aditz.nori = "hari"
+            if v == "gu":
+                aditz.nori = "guri"
+            if v == "zu":
+                aditz.nori = "zuri"
+            if v == "zue":
+                aditz.nori = "zuei"
+            if v == "e":
+                aditz.nori = "haiei"
 
 def main(verb):
 
