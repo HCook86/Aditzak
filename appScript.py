@@ -772,4 +772,4 @@ def main(verb):
 def analyse(aditz):
     return main(verb(aditz))
 
-print(analyse(input('Aditza: ')))
+print(analyse(input('Aditza: ').lower()))
