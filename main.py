@@ -20,7 +20,7 @@ class verb:
     nori = None
     nork = None
 
-aditza = str("gintudan")
+aditza = str("genizkizuen")
 
 def remove_prefix(text, prefix):
     if text.startswith(prefix):
@@ -242,8 +242,6 @@ def indikativoPersonas(aditz):
             if v.endswith("e"):
                 aditz.nori =  "haiei"
 
-            print(aditz.nor, aditz.nori, aditz.lehen)
-
         if aditz.nk:
             
             if v.endswith("n"):
@@ -275,11 +273,91 @@ def indikativoPersonas(aditz):
             if v.endswith("te") or v.endswith("ten"):
                 aditz.nork = "haiek"
 
-            print(aditz.nor, aditz.nork, aditz.lehen)
-
         if aditz.nik:
             
-            pass
+            if v.endswith("n"):
+                aditz.lehen = True
+
+            if aditz.lehen == False:
+
+                if v.startswith("dizki"):
+                    aditz.nor = "plu"
+                    v = remove_prefix(v, "dizki")
+                else:
+                    aditz.nor = "sin"
+                    v = remove_prefix(v, "di")
+
+                if v.startswith("t") or v.startswith("da"):
+                    aditz.nori = "niri"
+                if v.startswith("o"):
+                    aditz.nori = "hari"
+                if v.startswith("gu"):
+                    aditz.nori = "guri"
+                if v.startswith("zu"):
+                    aditz.nori = "zuri"
+                if v.startswith("zue"):
+                    aditz.nori = "zuei"
+                if v.startswith("e"):
+                    aditz.nori = "haiei"
+
+                if v.endswith("t"):
+                    aditz.nork = "nik"
+                elif v.endswith("gu"):
+                    aditz.nork = "guk"
+                elif v.endswith("zu"):
+                    aditz.nork = "zuk"
+                elif v.endswith("zue"):
+                    aditz.nork = "zuek"
+                elif v.endswith("te"):
+                    aditz.nork = "haiek"
+                else:
+                    aditz.nork = "hark"    
+            
+            else:
+                v = v.removesuffix("n")
+
+                aditz.teend = False
+
+                if v.endswith("te"):
+                    aditz.teend = True
+                    v = v.removesuffix("te") 
+                if v.startswith("n"):
+                    aditz.nork = "nik"
+                    v = remove_prefix(v, "n")
+                if v.startswith("z") and aditz.teend and not v.startswith("zen"):
+                    aditz.nork = "haiek"
+                    v = remove_prefix(v, "z")
+                elif v.startswith("z") and not v.startswith("zen"):
+                    aditz.nork = "hark"
+                    v = remove_prefix(v, "z")
+                if v.startswith("gen"):
+                    aditz.nork = "guk"
+                    v = remove_prefix(v, "gen")
+                if v.startswith("zen") and aditz.teend:
+                    aditz.nork = "zuek"
+                    v = remove_prefix(v, "zen")
+                elif v.startswith("zen"):
+                    aditz.nork("zuk")
+                    v = remove_prefix(v, "zen")
+                if v.startswith("izki"):
+                    aditz.nor = "plu"
+                    v = remove_prefix(v, "izki")
+                else:
+                    aditz.nor = "sin"
+                    v = remove_prefix(v, "i")
+
+                if v == "da":
+                    aditz.nori = "niri"
+                if v == "o":
+                    aditz.nori = "hari"
+                if v == "gu":
+                    aditz.nori = "guri"
+                if v == "zu":
+                    aditz.nori = "zuri"
+                if v == "zue":
+                    aditz.nori = "zuei"
+                if v == "e":
+                    aditz.nori = "haiei"
 
 def main(verb):
 
@@ -300,6 +378,6 @@ def main(verb):
 
     indikativoPersonas(verb)
 
-    return (verb.ahalera, verb.ondorioa, verb.indikatiboa, verb.baldintza, "caso:", verb.ni, verb.nk, verb.nik)
+    return (verb.ahalera, verb.ondorioa, verb.indikatiboa, verb.baldintza, "pers:", verb.nor, verb.nori, verb.nork)
 
 print(main(verb(aditza)))
