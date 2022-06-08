@@ -1,80 +1,80 @@
 {
     "Indikatiboa": {
         "Oraina":{
-                "ni":"naiz",
-                "hi":"haiz",
-                "hura":"da",
-                "gu":"gara",
-                "zu":"zara", 
-                "zuek":"zarete",
-                "haiek":"dira"
+            "ni":"naiz",
+            "hi":"haiz",
+            "hura":"da",
+            "gu":"gara",
+            "zu":"zara", 
+            "zuek":"zarete",
+            "haiek":"dira"
         },
         "Iragana":{
-                "ni":"nintzen",
-                "hi":"hintzen",
-                "hura":"zen",
-                "gu":"ginen",
-                "zu":"zinen",
-                "zuek":"zineten",
-                "haiek":"ziren"
+            "ni":"nintzen",
+            "hi":"hintzen",
+            "hura":"zen",
+            "gu":"ginen",
+            "zu":"zinen",
+            "zuek":"zineten",
+            "haiek":"ziren"
         }
     },
     "Baldintzakoak":{
         "Baldintza":{
-                "ni":"banintz",
-                "hi":"bahintz",
-                "hura":"balitz",
-                "gu":"bagina",
-                "zu":"bazina",
-                "zuek":"bazinete",
-                "haiek":"balira"
+            "ni":"banintz",
+            "hi":"bahintz",
+            "hura":"balitz",
+            "gu":"bagina",
+            "zu":"bazina",
+            "zuek":"bazinete",
+            "haiek":"balira"
         },
         "Litekeena":{
-                "ni":"nintzateke",
-                "hi":"hintzateke",
-                "hura":"litzateke",
-                "gu":"ginateke",
-                "zu":"zinateke",
-                "zuek":"zinatekete",
-                "haiek":"lirateke"
+            "ni":"nintzateke",
+            "hi":"hintzateke",
+            "hura":"litzateke",
+            "gu":"ginateke",
+            "zu":"zinateke",
+            "zuek":"zinatekete",
+            "haiek":"lirateke"
         },
         "Ezinezkoa":{
-                "ni":"nintzatekeen",
-                "hi":"hintzatekeen",
-                "hura":"zatekeen",
-                "gu":"ginatekeen",
-                "zu":"zinatekeen",
-                "zuek":"zinateketeen",
-                "haiek":"liratekeen"
+            "ni":"nintzatekeen",
+            "hi":"hintzatekeen",
+            "hura":"zatekeen",
+            "gu":"ginatekeen",
+            "zu":"zinatekeen",
+            "zuek":"zinateketeen",
+            "haiek":"liratekeen"
         }
     },
     "Ahalera":{
         "Oraina":{
-                "ni":"naiteke",
-                "hi":"haiteke",
-                "hura":"daiteke",
-                "gu":"gaitezke",
-                "zu":"zaitezke",
-                "zuek":"zaitezkete",
-                "haiek":"daitezke"
+            "ni":"naiteke",
+            "hi":"haiteke",
+            "hura":"daiteke",
+            "gu":"gaitezke",
+            "zu":"zaitezke",
+            "zuek":"zaitezkete",
+            "haiek":"daitezke"
         },
         "Iragana":{
-                "ni":"nintekeen",
-                "hi":"hintekeen",
-                "hura":"zitekeen",
-                "gu":"gintezkeen",
-                "zu":"zintezkeen",
-                "zuek":"zintezketen",
-                "haiek":"zitezkeen"
+            "ni":"nintekeen",
+            "hi":"hintekeen",
+            "hura":"zitekeen",
+            "gu":"gintezkeen",
+            "zu":"zintezkeen",
+            "zuek":"zintezketen",
+            "haiek":"zitezkeen"
         },
         "Hipotetikoa":{
-                "ni":"ninteke",
-                "hi":"hinteke",
-                "hura":"liteke",
-                "gu":"gintezke",
-                "zu":"zintezke",
-                "zuek":"zintezkete",
-                "haiek":"litezke"
+            "ni":"ninteke",
+            "hi":"hinteke",
+            "hura":"liteke",
+            "gu":"gintezke",
+            "zu":"zintezke",
+            "zuek":"zintezkete",
+            "haiek":"litezke"
         }
     },
     "Subjuntiboa":{
