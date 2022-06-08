@@ -10,7 +10,17 @@ def nk3(aditza):
         tipo = NK3[element]
         for zenbaki in tipo:
             verbos = tipo[zenbaki]
-            for verb in verbos.items():
-                if aditza == verb[1]:
-                    erantzuna = {"Aditza":aditza,"Kasua":"NOR-NORK", "Modua":element, "Denbora":denbora, "Nor":"", "Nori":None, "Nork":verb[0]}
+            for tiempo in verbos:
+                pertsonak = verbos[tiempo]
+                for pertsona in pertsonak.items():
+                    if aditza == pertsona[1]:
+                        sujeto = None
+                        if tiempo == "Singularra":
+                            sujeto = "hura"
+                        elif tiempo == "Plurala":
+                            sujeto = "haiek"
+                        erantzuna = {"Aditza":aditza,"Kasua":"NOR-NORK", "Modua":element, "Denbora":zenbaki, "Nor":sujeto, "Nori":None, "Nork":pertsona[0]}
+                        print(erantzuna)
     return erantzuna
+
+nk3("nitzakeen")
