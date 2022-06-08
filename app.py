@@ -771,5 +771,3 @@ def main(verb):
 
 def analyse(aditz):
     return main(verb(aditz))
-
-print(analyse("nuen"))
