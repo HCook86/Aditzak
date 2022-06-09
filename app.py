@@ -299,10 +299,10 @@ def indikativoPersonas(aditz):
             if aditz.lehen == False:
 
                 if v.startswith("dizki"):
-                    aditz.nor = "plu"
+                    aditz.nor = "plulara"
                     v = remove_prefix(v, "dizki")
                 else:
-                    aditz.nor = "sin"
+                    aditz.nor = "singularra"
                     v = remove_prefix(v, "di")
 
                 if v.startswith("t") or v.startswith("da"):
@@ -358,10 +358,10 @@ def indikativoPersonas(aditz):
                     aditz.nork = "zuk"
                     v = remove_prefix(v, "zen")
                 if v.startswith("izki"):
-                    aditz.nor = "plu"
+                    aditz.nor = "plurala"
                     v = remove_prefix(v, "izki")
                 else:
-                    aditz.nor = "sin"
+                    aditz.nor = "singularra"
                     v = remove_prefix(v, "i")
 
                 if v == "da":
@@ -485,10 +485,10 @@ def baldintzaPersonas(aditz):
                 v = remove_prefix(v, "zen")
 
             if v.startswith("izki"):
-                aditz.nor = "plu"
+                aditz.nor = "plurala"
                 v = remove_prefix(v, "izki")
             else:
-                aditz.nor = "sin"
+                aditz.nor = "singularra"
                 v = remove_prefix(v, "i")
 
             if v == "t" or v == "da":
@@ -573,10 +573,10 @@ def ahaleraPersonas(aditz):
         if aditz.nik:
             
             if v.startswith("diezazki"):
-                aditz.nor = "plu"
+                aditz.nor = "plurala"
                 v = remove_prefix(v, "diezazki")
             else:
-                aditz.nor = "sin"
+                aditz.nor = "singularra"
                 v = remove_prefix(v, "dieza")
 
             if v.startswith("da"):
@@ -698,10 +698,10 @@ def ondorioaPersonas(aditz):
                 v = remove_prefix(v, "zen")
 
             if v.startswith("izki"):
-                aditz.nor = "plu"
+                aditz.nor = "plurala"
                 v = remove_prefix(v, "izki")
             else:
-                aditz.nor = "sin"
+                aditz.nor = "singularra"
                 v = remove_prefix(v, "i")
 
             if v == "dake":

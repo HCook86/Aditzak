@@ -39,6 +39,13 @@ $(function(){
 $(function(){
     eel.expose(out);               // Expose this function to Python
     function out(x) {
-        $("#output").text(x);
+        x = JSON.parse(x)
+        $("#aditza").text(x.Aditza);
+        $("#modua").text(x.Modua);
+        $("#kasua").text(x.Kasua);
+        $("#nor").text(x.Nor);
+        $("#nori").text(x.Nori);
+        $("#nork").text(x.Nork);
+        $("#denbora").text(x.Denbora);
     }
 });
