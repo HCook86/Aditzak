@@ -3,9 +3,15 @@ from app import analyse
 
 eel.init('views')
 
-@eel.expose                         # Expose this function to Javascript
+def flash(error):
+    eel.error(error)
+
+@eel.expose                       
 def handleinput(x):
-    eel.out(str(analyse(x)))
-    #eel.display()
+    if x != "" and not " " in x:
+        eel.out(str(analyse(x)))
+    else:
+        flash("Aditz laguntzaile batekin sahiatu.")
 
 eel.start('main.html')
+
