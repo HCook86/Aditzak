@@ -724,6 +724,9 @@ def main(verb):
 
     if nornork(verb) != None:
         return nornork(verb)
+
+    if extra.subjuntivoa(verb) != None:
+        return extra.subjuntivoa(verb)
     
     baldintza(verb)
 
@@ -741,8 +744,6 @@ def main(verb):
     ahaleraPersonas(verb)
 
     ondorioaPersonas(verb)
-
-    extra.subjuntivoa(verb)
 
     kasua = None
     if verb.nk:
