@@ -110,7 +110,38 @@ def subjuntivoa(aditz):
 
         if aditz.nik:
             
-            print(v)
+            if v.startswith("diezazki"):
+                aditz.nor = "plu"
+                v = remove_prefix(v, "diezazki")
+            else:
+                aditz.nor = "sin"
+                v = remove_prefix(v, "dieza")
+
+            if v.startswith("da"):
+                aditz.nori = "niri"
+            if v.startswith("io") or v.startswith("o"):
+                aditz.nori = "hari"
+            if v.startswith("gu"):
+                aditz.nori = "guri"
+            if v.startswith("zu"):
+                aditz.nori = "zuri"
+            if v.startswith("zue"):
+                aditz.nori = "zuei"
+            if v.startswith("e") or v.startswith("ie"):
+                aditz.nori = "haiei"
+
+            if v.endswith("t"):
+                aditz.nork = "nik"
+            if v.endswith("da") or v.endswith("o") or v.endswith("gu") or v.endswith("zu") or v.endswith("zue") or v.endswith("e"):
+                aditz.nork = "hark"
+            if v.endswith("gu"):
+                aditz.nork = "guk"
+            if v.endswith("zu"):
+                aditz.nork = "zuk"
+            if v.endswith("zue"):
+                aditz.nork = "zuek"
+            if v.endswith("te"):
+                aditz.nork = "haiek"
 
 
         kasua = None
