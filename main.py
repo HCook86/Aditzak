@@ -14,4 +14,3 @@ def handleinput(x):
         flash("Aditz laguntzaile batekin sahiatu.")
 
 eel.start('main.html')
-
