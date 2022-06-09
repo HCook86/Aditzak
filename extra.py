@@ -14,13 +14,15 @@ def subjuntivoa(aditz):
         nend = True
         v.removesuffix("n")
 
+    if not v.startswith("zait"):
+        v = remove_prefix(v, "za")
+    v = remove_prefix(v, "zait")
     v = remove_prefix(v, "na")
     v = remove_prefix(v, "da")
-    v = remove_prefix(v, "ga")
-    v = remove_prefix(v, "za")
+    if not v.startswith("gait"):
+        v = remove_prefix(v, "ga")
     v = remove_prefix(v, "de")
     v = remove_prefix(v, "gait")
-    v = remove_prefix(v, "zait")
     v = remove_prefix(v, "dit")
 
     if v.startswith("ki") or v.startswith("za") or v.startswith("dieza"):
@@ -79,10 +81,36 @@ def subjuntivoa(aditz):
                 aditz.nori = "haiei"
 
         if aditz.nk:
-            pass
+            
+            if v.startswith("naza"):
+                aditz.nor = "ni"
+            if v.startswith("deza"):
+                aditz.nor = "hura"
+            if v.startswith("gaitza"):
+                aditz.nor = "gu"
+            if v.startswith("zaitza") and not v.startswith("zaitzate"):
+                aditz.nor = "zu"
+            if v.startswith("zaitzate"):
+                aditz.nor = "zuek"
+            if v.startswith("ditza"):
+                aditz.nor = "haiek"
+
+            if v.endswith("da"):
+                aditz.nork = "nik"
+            if v.endswith("za") or v.endswith("zate"):
+                aditz.nork = "hark"
+            if v.endswith("gu"):
+                aditz.nork = "guk"
+            if v.endswith("zu"):
+                aditz.nork = "zuk"
+            if v.endswith("zue"):
+                aditz.nork = "zuek"
+            if v.endswith("te"):
+                aditz.nork = "haiek"
 
         if aditz.nik:
-            pass
+            
+            print(v)
 
 
         kasua = None
