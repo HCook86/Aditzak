@@ -7,8 +7,6 @@
     color:#1e81b0;
 }
 .modal-content{
-    width: 180%;
-    left: -40%;
 }
 #input-container{
     margin-top: 15%;
@@ -19,5 +17,16 @@
     margin: auto;
 }
 .clickable{
+    cursor: pointer;
+}
+
+#flash{
+    margin-right: 10%!important;
+    margin-left: 10%!important;
+    padding-right: 15px!important;
+}
+#flash-icon{
+    float: right;
+    font-weight: bold;
     cursor: pointer;
 }
