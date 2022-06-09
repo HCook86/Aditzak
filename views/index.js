@@ -14,6 +14,8 @@ $(function(){
     $("#btn").click(function(){
         eel.handleinput($("#inp").val());
         $('#inp').val('');
+        $('#output').html('');
+        $('#errors').html('');
     });
     $(document).on('keypress',function(e) {
         if(e.which == 13) {
@@ -21,6 +23,18 @@ $(function(){
         }
     });
 }); 
+
+$(function(){
+    eel.expose(error);               // Expose this function to Python
+    function error(error) {
+        var display = 
+            '<div id="flash" class="alert alert-warning alert-dismissible fade show" role="alert">' +
+                '<strong>' + error + '</strong>' +
+                '<a data-bs-dismiss="alert" aria-label="Close" id="flash-icon"><i class="bi bi-x-lg"></i></a>'+
+            '</div>';
+        $("#errors").html(display);
+    }
+});
 
 $(function(){
     eel.expose(out);               // Expose this function to Python
