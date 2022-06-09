@@ -22,7 +22,26 @@
         }
     },
     "Baldintzakoak":{
-        "Baldintzak":{}
+        "Oranialdia":{
+            "Singularra":{
+                "nik":"banu",
+                "hik":"bahu",
+                "hark":"balu",
+                "guk":"bagenu",
+                "zuk":"bazenu",
+                "zuek":"bazenute",
+                "haiek":"balute"
+            },
+            "Plurala":{
+                "nik":"banitu",
+                "hik":"bahitu",
+                "hark":"balitu",
+                "guk":"bagenitu",
+                "zuk":"bazenitu",
+                "zuek":"bazenituzte",
+                "haiek":"balituzte"
+            }
+        }
     },
     "Ahalera":{
         "Iragana":{
