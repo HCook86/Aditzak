@@ -1,4 +1,5 @@
 from json import loads
+import extra
 
 class verb:
     def __init__(self, verb):
@@ -354,7 +355,7 @@ def indikativoPersonas(aditz):
                     aditz.nork = "zuek"
                     v = remove_prefix(v, "zen")
                 elif v.startswith("zen"):
-                    aditz.nork("zuk")
+                    aditz.nork = "zuk"
                     v = remove_prefix(v, "zen")
                 if v.startswith("izki"):
                     aditz.nor = "plu"
@@ -740,6 +741,8 @@ def main(verb):
     ahaleraPersonas(verb)
 
     ondorioaPersonas(verb)
+
+    extra.subjuntivoa(verb)
 
     kasua = None
     if verb.nk:
