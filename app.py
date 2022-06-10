@@ -725,6 +725,9 @@ def main(verb):
     if nornork(verb) != None:
         return nornork(verb)
 
+    if extra.agintera(verb) != None:
+        return extra.agintera(verb)
+
     if extra.subjuntivoa(verb) != None:
         return extra.subjuntivoa(verb)
     
