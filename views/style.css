@@ -6,8 +6,6 @@
     font-size: 5vh;
     color:#1e81b0;
 }
-.modal-content{
-}
 #input-container{
     margin-top: 15%;
     width: 100%;
@@ -34,4 +32,8 @@
     margin-right: 10%!important;
     margin-left: 10%!important;
     padding-right: 15px!important;
+}
+
+#close{
+    font-size: 4vh;
 }
