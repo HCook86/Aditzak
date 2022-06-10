@@ -30,3 +30,8 @@
     font-weight: bold;
     cursor: pointer;
 }
+#table{
+    margin-right: 10%!important;
+    margin-left: 10%!important;
+    padding-right: 15px!important;
+}
