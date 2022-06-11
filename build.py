@@ -50,8 +50,30 @@ def nori(args):
             verb = args["Aditza"].replace("(nori)", "e")
     return verb
 
-def nork():
-    return None
+def nork(args):
+    verb = None
+    print(args)
+    if args["Nork"] == "nik":
+        verb = args["Aditza"].replace("(nork)", "t")
+    """if args["Nork"] == "hik":
+    """
+    if args["Nork"] == "hark":
+        verb = args["Aditza"].replace("(nork)", "o")
+        print("o")
+    if args["Nork"] == "guk":
+        verb = args["Aditza"].replace("(nork)", "gu")
+        print("gu")
+    if args["Nork"] == "zuk":
+        verb = args["Aditza"].replace("(nork)", "zu")
+        print("zu")
+    if args["Nork"] == "zuek":
+        verb = args["Aditza"].replace("(nork)", "zue")
+        print("zue")
+    if args["Nork"] == "haiek":
+        verb = args["Aditza"].replace("(nork)", "e")
+        print("e")
+    print(verb)
+    return verb
 
 
 def build(args):
@@ -212,6 +234,10 @@ def build(args):
         args["Aditza"] = args["Aditza"] + "(nori)"
 
         args["Aditza"] = nori(args)
+        print("AFETR NORI " + args["Aditza"])
+        if args["Denbora"] == "Oraina":
+            args["Aditza"] = args["Aditza"] + "(nork)"
+            args["Aditza"] = nork(args)
 
         try:
             if "(zuek)" in args["Aditza"]:
@@ -220,8 +246,8 @@ def build(args):
                 args["Aditza"] = args["Aditza"].replace("(haiek)", "") + "te"
         except: pass
 
-        """if args["Denbora"] == "Iragana":
+        if args["Denbora"] == "Iragana" or args["Modua"] == "Subjuntiboa":
             args["Aditza"] = args["Aditza"] + "n"
-    """
+    
     return args["Aditza"]
-print(build({'Aditza': 'None', 'Kasua': 'NOR-NORI-NORK', 'Modua': 'Indikatiboa', 'Denbora': 'Oraina', 'Nor': 'zuek', 'Nori': 'niri', 'Nork': "nik"}))
+print(build({'Aditza': 'None', 'Kasua': 'NOR-NORI-NORK', 'Modua': 'Subjuntiboa', 'Denbora': 'Iragana', 'Nor': 'zuek', 'Nori': 'niri', 'Nork': "zuek"}))
