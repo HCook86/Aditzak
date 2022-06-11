@@ -3,6 +3,9 @@ def remove_prefix(text, prefix):
         return text[len(prefix):]
     return text
 
+def agintera(a):
+    return None
+
 def subjuntivoa(aditz):
     
     nend = False
