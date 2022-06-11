@@ -9,8 +9,11 @@ from json import loads
 #       NOR
 #       NOR-NORI:
 #           SUBJUNTIVO
-#           INDIKATIVO
+#           INDICATIVO
 #           AGINTERA
+#       NOR-NORI-NORK:
+#           INDICATIVO
+#           SUBJUNTIVO (PRUEBAS)
 
 def nori(args):
     verb = None
@@ -250,4 +253,4 @@ def build(args):
             args["Aditza"] = args["Aditza"] + "n"
     
     return args["Aditza"]
-print(build({'Aditza': 'None', 'Kasua': 'NOR-NORI-NORK', 'Modua': 'Subjuntiboa', 'Denbora': 'Iragana', 'Nor': 'zuek', 'Nori': 'niri', 'Nork': "zuek"}))
+print(build({'Aditza': 'None', 'Kasua': 'NOR-NORI', 'Modua': 'Agintera', 'Denbora': 'Oraina', 'Nor': 'zuek', 'Nori': 'niri', 'Nork': "zuek"}))
