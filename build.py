@@ -11,9 +11,13 @@ from json import loads
 #           SUBJUNTIVO
 #           INDICATIVO
 #           AGINTERA
+#           BALDINTZA
+#           ONDORIOA
+#           
 #       NOR-NORI-NORK:
 #           INDICATIVO
 #           SUBJUNTIVO (PRUEBAS)
+#
 #       NOR-NORK
 #           INDICATIVO (PRESENTE)
 
@@ -132,6 +136,81 @@ def build(args):
     
                 args["Aditza"] = args["Aditza"] + ("(nori)") + "n"
         
+        if args["Modua"] == "Baldintza":
+            args["Aditza"] = "ba"
+            
+            if args["Nor"] == "ni":
+                args["Aditza"] = args["Aditza"] + "nintzai"
+            if args["Nor"] == "hi":
+                args["Aditza"] = args["Aditza"] + "hintzai"
+            if args["Nor"] == "hura":
+                args["Aditza"] = args["Aditza"] + "litzai"
+            if args["Nor"] == "gu":
+                args["Aditza"] = args["Aditza"] +  "gintzaizki"
+            if args["Nor"] == "zu":
+                args["Aditza"] = args["Aditza"] +  "zintzaizki"
+            if args["Nor"] == "zuek":
+                args["Aditza"] = args["Aditza"] +  "zintzaizki(zuek)"
+            if args["Nor"] == "haiek":
+                args["Aditza"] = args["Aditza"] +  "litzaizki"
+
+            args["Aditza"] = args["Aditza"] + ("(nori)")
+
+            if args["Aditza"].startswith("bazintzaizki(zuek)"):
+                args["Aditza"] = args["Aditza"].replace("(zuek)", "")
+                args["Aditza"] = args["Aditza"] + "te"
+
+        if args["Modua"] == "Ondorioa":
+            print("ONDORIOA")
+            if args["Nor"] == "ni":
+                args["Aditza"] = "nintzai"
+            if args["Nor"] == "hi":
+                args["Aditza"] = "hintzai"
+            if args["Nor"] == "hura":
+                args["Aditza"] = "litzai"
+            if args["Nor"] == "gu":
+                args["Aditza"] = "gintzaizki"
+            if args["Nor"] == "zu":
+                args["Aditza"] = "zintzaizki"
+            if args["Nor"] == "zuek":
+                args["Aditza"] = "zintzaizki(zuek)"
+            if args["Nor"] == "haiek":
+                args["Aditza"] = "litzaizki"
+
+            args["Aditza"] = args["Aditza"] + ("(nori)")
+
+            args["Aditza"] = args["Aditza"] + "ke"
+            
+            if args["Aditza"].startswith("zintzaizki(zuek)"):
+                args["Aditza"] = args["Aditza"].replace("(zuek)", "")
+                args["Aditza"] = args["Aditza"] + "te"
+        
+        if args["Modua"] == "Ahalera":
+            print("AHALERA")
+            if args["Nor"] == "ni":
+                args["Aditza"] = "naki"
+            if args["Nor"] == "hi":
+                args["Aditza"] = "haki"
+            if args["Nor"] == "hura":
+                args["Aditza"] = "daki"
+            if args["Nor"] == "gu":
+                args["Aditza"] = "gakizki"
+            if args["Nor"] == "zu":
+                args["Aditza"] = "zakizki"
+            if args["Nor"] == "zuek":
+                args["Aditza"] = "zakizki(zuek)"
+            if args["Nor"] == "haiek":
+                args["Aditza"] = "zaizki"
+
+            args["Aditza"] = args["Aditza"] + ("(nori)")
+
+            args["Aditza"] = args["Aditza"] + "ke"
+
+            if args["Aditza"].startswith("zintzaizki(zuek)"):
+                args["Aditza"] = args["Aditza"].replace("(zuek)", "")
+                args["Aditza"] = args["Aditza"] + "te"
+
+
         if args["Modua"] == "Subjuntiboa":
             print("SUBJUNTIVO")
             if args["Denbora"] == "Oraina":
@@ -258,8 +337,6 @@ def build(args):
             if args["Nork"] == "haiek":
                 args["Aditza"] = "zi(haiek)"
         
-
-
         if args["Modua"] == "Subjuntiboa":
             
             args["Aditza"] = args["Aditza"] + "eza"
@@ -289,4 +366,4 @@ def build(args):
             args["Aditza"] = args["Aditza"] + "n"
     
     return args["Aditza"]
-print(build({'Aditza': 'None', 'Kasua': 'NOR-NORI-NORK', 'Modua': 'Subjuntiboa', 'Denbora': 'Iragana', 'Nor': 'plurala', 'Nori': 'haiei', 'Nork': "zuek"}))
+print(build({'Aditza': 'None', 'Kasua': 'NOR-NORI', 'Modua': 'Ahalera', 'Denbora': 'Oraina', 'Nor': 'zu', 'Nori': 'haiei', 'Nork': "zuek"}))
