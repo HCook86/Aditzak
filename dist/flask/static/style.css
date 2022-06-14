@@ -1,0 +1,49 @@
+#modal-trigger{
+    position: absolute;
+    right: 0%;
+    top: 0%;
+    margin: 2%;
+    font-size: 5vh;
+    color:#1e81b0;
+}
+#input-container{
+    margin-top: 15%;
+    width: 100%;
+}
+#input-group{
+    width: 80%;
+    margin: auto;
+}
+.clickable{
+    cursor: pointer;
+}
+
+#flash{
+    margin-right: 10%!important;
+    margin-left: 10%!important;
+    padding-right: 15px!important;
+}
+#flash-icon{
+    float: right;
+    font-weight: bold;
+    cursor: pointer;
+}
+#table{
+    margin-right: 10%!important;
+    margin-left: 10%!important;
+    padding-right: 15px!important;
+}
+
+#close{
+    font-size: 4vh;
+}
+footer{
+    width:100%;
+    background-color: #545557;
+    color: white;
+    height: 30px;
+}
+#copy{
+    margin-left: auto;
+    margin-top:auto;
+}
