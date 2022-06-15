@@ -3,9 +3,6 @@ def remove_prefix(text, prefix):
         return text[len(prefix):]
     return text
 
-def agintera(a):
-    return None
-
 def subjuntivoa(aditz):
     
     nend = False
@@ -156,6 +153,167 @@ def subjuntivoa(aditz):
             kasua = "NOR-NORI-NORK"
 
         modua = "Subjuntiboa"
+
+        denbora = None
+        if aditz.lehen == False:
+            denbora = "Oraina"
+        else:
+            denbora = "Iragana"
+
+        return {"Aditza":aditz.verb,"Kasua":kasua, "Modua":modua, "Denbora":denbora, "Nor":aditz.nor, "Nori":aditz.nori, "Nork":aditz.nork}
+                
+    else:
+        return None
+
+def agintera(aditz):
+    
+    nend = False
+    ki = False
+
+    v = aditz.verb
+
+    if v.endswith("n"):
+        nend = True
+
+    v = remove_prefix(v, "ha")
+    v = remove_prefix(v, "be")
+    v = remove_prefix(v, "za")
+
+    v = remove_prefix(v, "na")
+    v = remove_prefix(v, "be")
+    v = remove_prefix(v, "e")
+    v = remove_prefix(v, "gait")
+    v = remove_prefix(v, "bit")
+    v = remove_prefix(v, "it")
+
+    if v.startswith("ki") or v.startswith("za") or v.startswith("bieza") or v.startswith("ieza"):
+        ki = True
+    
+    if not nend and ki:
+
+        if v.startswith("ki"):
+            aditz.ni = True
+        if v.startswith("za"):
+            aditz.nk = True
+        if v.startswith("ieza") or v.startswith("bieza"):
+            aditz.nik = True
+
+        v = aditz.verb
+
+        if aditz.ni:
+            
+            aditz.teend = False
+            if v.endswith("te"):
+                aditz.teend = True
+                v = v.removesuffix("te")
+            
+            if v.startswith("haki"):
+                aditz.nor = "hi"
+            if v.startswith("beki") and not v.startswith("bekizki"):
+                aditz.nor = "hura"
+            if v.startswith("zakizki") and not aditz.teend:
+                aditz.nor = "zu"
+            if v.startswith("zakizki") and aditz.teend:
+                aditz.nor = "zuek"
+            if v.startswith("bekizki"):
+                aditz.nor = "haiek"
+
+            if v.endswith("t") or v.endswith("da"):
+                aditz.nori = "niri"
+            if v.endswith("k"):
+                aditz.nori = "hiri"
+            if v.endswith("o"):
+                aditz.nori = "hari"
+            if v.endswith("gu"):
+                aditz.nori = "guri"
+            if v.endswith("zu"):
+                aditz.nori = "zuri"
+            if v.endswith("zue"):
+                aditz.nori = "zuei"
+            if v.endswith("e") and not v.endswith("zue"):
+                aditz.nori = "haiei"
+
+        if aditz.nk:
+            
+            if v.startswith("naza"):
+                aditz.nor = "ni"
+            if v.startswith("beza"):
+                aditz.nor = "hura"
+            if v.startswith("eza"):
+                aditz.nor = "hura"
+            if v.startswith("gaitza"):
+                aditz.nor = "gu"
+            if v.startswith("bitza"):
+                aditz.nor = "haiek"
+            if v.startswith("itza"):
+                aditz.nor = "haiek"
+
+            if v.endswith("k"):
+                aditz.nork = "hik"
+            if v.endswith("zu"):
+                aditz.nork = "zuk"
+            if v.endswith("zue"):
+                aditz.nork = "zuek"
+            if v.endswith("te"):
+                aditz.nork = "haiek"
+
+        if aditz.nik:
+            
+            v = remove_prefix(v, "b")
+
+            if v.startswith("iezazki"):
+                aditz.nor = "plu"
+                v = remove_prefix(v, "iezazki")
+            else:
+                aditz.nor = "sin"
+                v = remove_prefix(v, "ieza")
+
+            if v.startswith("t") or v.startswith("da"):
+                aditz.nori = "niri"
+                v = remove_prefix(v, "t")
+                v = remove_prefix(v, "da")
+            if v.startswith("k") or v.startswith("n"):
+                aditz.nori = "hiri"
+                v = remove_prefix(v, "k")
+                v = remove_prefix(v, "n")
+            if v.startswith("io") or v.startswith("o"):
+                aditz.nori = "hari"
+                v = remove_prefix(v, "io")
+                v = remove_prefix(v, "o")
+            if v.startswith("gu"):
+                aditz.nori = "guri"
+                v = remove_prefix(v, "gu")
+            if v.startswith("zu"):
+                aditz.nori = "zuri"
+                v = remove_prefix(v, "zu")
+            if v.startswith("zue"):
+                aditz.nori = "zuei"
+                v = remove_prefix(v, "zue")
+            if v.startswith("ie") or v.startswith("e"):
+                aditz.nori = "haiei"
+                v = remove_prefix(v, "ie")
+                v = remove_prefix(v, "e")
+
+            if v == "k":
+                aditz.nork = "hik"
+            if v == "":
+                aditz.nork = "hark"
+            if v == "zu":
+                aditz.nork = "zuk"
+            if v == "zue":
+                aditz.nork = "zuek"
+            if v == "te":
+                aditz.nork = "haiek"
+
+        kasua = None
+        if aditz.nk:
+            kasua = "NOR-NORK"
+        elif aditz.ni:
+             kasua = "NOR-NORI"
+        elif aditz.nik:
+            kasua = "NOR-NORI-NORK"
+
+        modua = "Agintera"
 
         denbora = None
         if aditz.lehen == False:
