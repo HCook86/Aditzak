@@ -43,6 +43,48 @@
             }
         }
     },
+    "Ondorioa":{
+        "Oraina":{
+            "Singularra":{
+                "nik":"nuke",
+                "hik":"huke",
+                "hark":"luke",
+                "guk":"genuke",
+                "zuk":"zenuke",
+                "zuek":"zenukete",
+                "haiek":"lukete"
+            },
+            "Plurala":{
+                "nik":"nituzke",
+                "hik":"hituzke",
+                "hark":"lituzke",
+                "guk":"genituzke",
+                "zuk":"zenituzke",
+                "zuek":"zenituzkete",
+                "haiek":"lituzkete"
+            }
+        },
+        "Iragana":{
+            "Singularra":{
+                "nik":"nukeen",
+                "hik":"hukeen",
+                "hark":"lukeen",
+                "guk":"genukeen",
+                "zuk":"zenukeen",
+                "zuek":"zenuketen",
+                "haiek":"luketen"
+            },
+            "Plurala":{
+                "nik":"nituzkeen",
+                "hik":"hituzkeen",
+                "hark":"lituzkeen",
+                "guk":"genituzkeen",
+                "zuk":"zenituzkeen",
+                "zuek":"zenituzketen",
+                "haiek":"lituzketen"
+            }
+        }
+    },
     "Ahalera":{
         "Iragana":{
             "Singularra":{
