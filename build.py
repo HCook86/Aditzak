@@ -8,22 +8,22 @@ from json import loads
 
 #IMPLEMENTADO: 
 #       NOR
-#       NOR-NORI: (TODO MENOS AHALERA EN HIPOTÉTICO)
+#       NOR-NORI: (TODO AÑADIDO) (SIN TESTEAR)
 #           SUBJUNTIVO
 #           INDICATIVO
 #           AGINTERA
 #           BALDINTZA
 #           ONDORIOA
-#           AHALERA (PRESENTE y PASADO)
+#           AHALERA 
 #           
 #
-#       NOR-NORI-NORK: (TODO MENOS AHALERA EN HIPOTÉTICO) (EL AGINTERA NO RECONOCE COMBINACIONES IMPOSIBLES)
+#       NOR-NORI-NORK: (TODO AÑADIDO) (SIN TESTEAR) (EL AGINTERA NO RECONOCE COMBINACIONES IMPOSIBLES)
 #           SUBJUNTIVO
 #           INDICATIVO
 #           AGINTERA
 #           BALDINTZA
 #           ONDORIOA
-#           AHALERA (ORAINA e IRAGANA)
+#           AHALERA 
 #
 #       NOR-NORK: (FALTA AHALERA, y AGINTERA) 
 #           INDICATIVO 
@@ -49,7 +49,7 @@ def nori(args):
                 verb = args["Aditza"].replace("(nori)", "da")    
         if args["Modua"] == "Subjuntiboa":
             verb = args["Aditza"].replace("(nori)", "da")
-        if args["Modua"] == "Agintera":
+        if args["Modua"] == "Agintera" or args["Modua"] == "Baldintza":
             if args["Aditza"].endswith("te"):
                 verb = args["Aditza"].replace("(nori)", "da")
             else:
@@ -58,9 +58,14 @@ def nori(args):
     if args["Nori"] == "hiri":
         print("NOT IMPLEMENTED")
     if args["Nori"] == "hari":
-        if (args["Modua"] == "Agintera" or args["Modua"] == "Ahalera") and args["Aditza"].endswith("i(nori)") == False:
+        print(args["Aditza"])
+        print(args["Modua"] == "Agintera" or args["Modua"] == "Ahalera")
+        print("i(nori)" in args["Aditza"])
+        if (args["Modua"] == "Agintera" or args["Modua"] == "Ahalera") and not "i(nori)" in args["Aditza"]:
+            print("IO")
             verb = args["Aditza"].replace("(nori)", "io")
         else:
+            print("O")
             verb = args["Aditza"].replace("(nori)", "o")
     if args["Nori"] == "guri":
         verb = args["Aditza"].replace("(nori)", "gu")
@@ -69,7 +74,8 @@ def nori(args):
     if args["Nori"] == "zuei":
         verb = args["Aditza"].replace("(nori)", "zue")
     if args["Nori"] == "haiei":
-        if args["Modua"] == "Subjuntiboa" and args["Kasua"] == "NOR-NORI-NORK" or args["Modua"] == "Agintera":
+        print(args["Aditza"].endswith("i(nori)"))
+        if (args["Modua"] == "Subjuntiboa" and args["Kasua"] == "NOR-NORI-NORK") or (args["Modua"] == "Agintera") and not "i(nori)" in args["Aditza"]:
             verb = args["Aditza"].replace("(nori)", "ie")
         else:
             verb = args["Aditza"].replace("(nori)", "e")
@@ -155,11 +161,17 @@ def build(args):
                 if args["Nor"] == "zu":
                     args["Aditza"] = "zintzaizki"
                 if args["Nor"] == "zuek":
-                    args["Aditza"] = "zintzaizkite"
+                    args["Aditza"] = "zintzaizki(zuek)"
                 if args["Nor"] == "haiek":
                     args["Aditza"] = "zitzaizki"
     
-                args["Aditza"] = args["Aditza"] + ("(nori)") + "n"
+                args["Aditza"] = args["Aditza"] + ("(nori)")
+                
+                if args["Aditza"].startswith("zintzaizki(zuek)"):
+                    args["Aditza"] = args["Aditza"].replace("(zuek)", "")
+                    args["Aditza"] = args["Aditza"] + "te"
+
+                args["Aditza"] = args["Aditza"] + "n"
         
         if args["Modua"] == "Baldintza":
             args["Aditza"] = "ba"
@@ -184,7 +196,7 @@ def build(args):
             if args["Aditza"].startswith("bazintzaizki(zuek)"):
                 args["Aditza"] = args["Aditza"].replace("(zuek)", "")
                 args["Aditza"] = args["Aditza"] + "te"
-
+            
         if args["Modua"] == "Ondorioa":
             print("ONDORIOA")
             if args["Nor"] == "ni":
@@ -215,6 +227,7 @@ def build(args):
                     args["Aditza"] = args["Aditza"] + "n"
                 else:
                     args["Aditza"] = args["Aditza"] + "en"
+
 
         if args["Modua"] == "Ahalera":
             print("AHALERA")
@@ -250,6 +263,21 @@ def build(args):
                 if args["Nor"] == "haiek":
                     args["Aditza"] = "zekizki"
 
+            if args["Denbora"] == "Hipotetikoa":
+                if args["Nor"] == "ni":
+                    args["Aditza"] = "nenki"
+                if args["Nor"] == "hi":
+                    args["Aditza"] = "henki"
+                if args["Nor"] == "hura":
+                    args["Aditza"] = "leki"
+                if args["Nor"] == "gu":
+                    args["Aditza"] = "gakizki"
+                if args["Nor"] == "zu":
+                    args["Aditza"] = "zakizki"
+                if args["Nor"] == "zuek":
+                    args["Aditza"] = "zakizki(zuek)"
+                if args["Nor"] == "haiek":
+                    args["Aditza"] = "lekizki"
                 
             args["Aditza"] = args["Aditza"] + ("(nori)")
 
@@ -418,8 +446,6 @@ def build(args):
 
     elif args["Kasua"] == "NOR-NORI-NORK":
         print("NOR-NORI-NORK")
-        print(args["Nor"])
-        print(args["Aditza"])
         if args["Nor"] != "singularra" and args["Nor"] != "plurala":
             raise ValueError("Incorrect value for Nor: Nor only takes singularra or plurala when Kasua is NOR-NORI-NORK. Read README.txt or the documentation at https://github.com/HCook86/Aditzak/blob/heroku/README.md for more information")
         if args["Modua"] == "Baldintza":
@@ -432,13 +458,16 @@ def build(args):
             if args["Denbora"] == "Oraina" and args["Modua"] != "Baldintza":
                 args["Aditza"] = "di"
         
-        if args["Denbora"] == "Iragana" or args["Modua"] == "Baldintza":
+        if args["Denbora"] == "Iragana" or args["Denbora"] == "Hipotetikoa" or args["Modua"] == "Baldintza":
             if args["Nork"] == "nik":
                 args["Aditza"] = args["Aditza"] + "ni"
             if args["Nork"] == "hik":
                 args["Aditza"] = args["Aditza"] + "hi"
             if args["Nork"] == "hark":
-                args["Aditza"] = args["Aditza"] + "zi"
+                if args["Denbora"] == "Hipotetikoa":
+                    args["Aditza"] = args["Aditza"] + "li"    
+                else:
+                    args["Aditza"] = args["Aditza"] + "zi"  
             if args["Nork"] == "guk":
                 args["Aditza"] = args["Aditza"] + "geni"
             if args["Nork"] == "zuk":
@@ -446,7 +475,11 @@ def build(args):
             if args["Nork"] == "zuek":
                 args["Aditza"] = args["Aditza"] + "zeni(zuek)"
             if args["Nork"] == "haiek":
-                args["Aditza"] = args["Aditza"] + "zi(haiek)"    
+                if args["Denbora"] == "Hipotetikoa":
+                    args["Aditza"] = args["Aditza"] + "li(haiek)"    
+                else:
+                    args["Aditza"] = args["Aditza"] + "zi(haiek)"    
+        
 
         if args["Modua"] == "Subjuntiboa" or args["Modua"] == "Ahalera":
             
@@ -489,4 +522,4 @@ def build(args):
     #If Kasua does not have a correct value
     else: raise ValueError('Incorrect value for Kasua. Read README.txt or the documentation at https://github.com/HCook86/Aditzak/blob/heroku/README.md for more information')
     return args["Aditza"]
-print(build({'Aditza': None, 'Kasua': 'NOR-NORI-NORK', 'Modua': 'Ahalera', 'Denbora': "Iragana", 'Nor': 'singularra', 'Nori': 'hari', 'Nork': "guk"}))
+print(build({'Aditza': None, 'Kasua': 'NOR-NORI', 'Modua': 'Baldintza', 'Denbora': "Oraina", 'Nor': 'gu', 'Nori': 'niri', 'Nork': "zuek"}))
