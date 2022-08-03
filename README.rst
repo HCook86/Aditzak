@@ -1,16 +1,17 @@
-# Aditzak
+#Aditzak
 
 A library to analyze and build verbs in Euskera
 
-## Installation
+##Installation
 
-    Using pip:
+Using pip:
 
     `pip install Aditzak`
 
 ##Usage
 
-    Basic example:
+Basic example:
+
     ```
     from Aditzak import builder
 
