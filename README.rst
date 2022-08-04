@@ -1,14 +1,14 @@
-#Aditzak
+# Aditzak
 
 A library to analyze and build verbs in Euskera
 
-##Installation
+## Installation
 
 Using pip:
 
     `pip install Aditzak`
 
-##Usage
+## Usage
 
 Basic example:
 
