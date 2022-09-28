@@ -1,0 +1,9 @@
+LIST OF ALL KNOWN ERRORS IN THE PROGRAM TO FIX:
+
+#1
+  CODE:
+    {'Aditza': 'nindu(nork)', 'Kasua': 'NOR-NORK', 'Nork': 'zuek', 'Nori': None, 'Nor': 'ni', 'Modua': 'Indikatiboa', 'Denbora': 'Iragana'}
+  OUTPUT:
+   ninduzuen
+  
+  CODE:
