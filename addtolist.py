@@ -1,3 +1,9 @@
+import os
+def rmlastln(filename):
+    with open(filename, 'rb+') as filehandle:
+        filehandle.seek(-1, os.SEEK_END)
+        filehandle.truncate()
+
 def writeln(filename, txt):
     with open(filename, "a") as file:
         file.write(txt + "\n")
@@ -15,6 +21,7 @@ verb_caract = ["Aditza", "Kasua", "Modua", "Denbora", "Nor", "Nori", "Nork"]
 filename = "verb.ls"
 with open(filename, "a") as file:
 
+    writeln(filename, "")
     cmd = ""
     while cmd != "exit":
         cmd = input()
@@ -28,3 +35,5 @@ with open(filename, "a") as file:
         
         if cmd == "undo":
             dellastln(filename)
+
+    rmlastln(filename)
