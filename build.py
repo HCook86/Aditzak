@@ -1,4 +1,8 @@
 from json import loads
+import os
+
+this_file = os.path.abspath(__file__)
+this_dir = os.path.dirname(this_file)
 
 #FALTA POR IMPLEMENTAR:
 #   NOR-NORI-NORK EN AGINTERA COMBINACIONES IMPOSIBLES

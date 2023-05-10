@@ -1,6 +1,13 @@
-from os import getcwdb
+import os
 from json import loads
-from extra import agintera, subjuntivoa
+
+if __name__ == "__main__":
+    from extra import agintera, subjuntivoa
+else:
+    from .extra import agintera, subjuntivoa
+
+this_file = os.path.abspath(__file__)
+this_dir = os.path.dirname(this_file)
 
 class verb:
     def __init__(self, verb):
@@ -29,7 +36,7 @@ def remove_prefix(text, prefix):
 
 def nor(aditz):
     
-    hand = open(str(getcwdb()) + "/nor.json", "r")
+    hand = open(os.path.join(this_dir, "nor.json"), "r")
     info = hand.read()
     NOR = loads(info)
 
@@ -45,7 +52,7 @@ def nor(aditz):
     return erantzuna
 
 def nornork(aditz):
-    hand = open(str(getcwdb()) + "/nk3.json", "r")
+    hand = open(os.path.join(this_dir, "nk3.json"), "r")
     info = hand.read()
     NK3 = loads(info)
     
@@ -775,10 +782,10 @@ def main(verb):
 
     return {"Aditza":verb.verb,"Kasua":kasua, "Modua":modua, "Denbora":denbora, "Nor":verb.nor, "Nori":verb.nori, "Nork":verb.nork}
 
-filename = "/verb.ls"
+filename = "verb.ls"
 verbs = []
 
-with open(str(getcwdb()) + filename, "r") as file:
+with open(os.path.join(this_dir, filename), "r") as file:
     verbs = file.read().split("\n")
 
 verbs = list(map(eval, verbs))
