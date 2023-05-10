@@ -1,5 +1,5 @@
 from json import loads
-from .extra import agintera
+from .extra import agintera, subjuntivoa
 
 class verb:
     def __init__(self, verb):
