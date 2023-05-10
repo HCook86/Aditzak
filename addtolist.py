@@ -27,6 +27,7 @@ with open(filename, "a") as file:
         cmd = input()
 
         if cmd == "new":
+            print("Aditza tiene que ir entero en minusculas")
             v = []
             for i in verb_caract:
                 v.append(input(i + ": "))

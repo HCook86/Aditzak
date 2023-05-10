@@ -1,5 +1,6 @@
+from os import getcwdb
 from json import loads
-from .extra import agintera, subjuntivoa
+from extra import agintera, subjuntivoa
 
 class verb:
     def __init__(self, verb):
@@ -28,7 +29,7 @@ def remove_prefix(text, prefix):
 
 def nor(aditz):
     
-    hand = open("nor.json", "r")
+    hand = open(str(getcwdb()) + "/nor.json", "r")
     info = hand.read()
     NOR = loads(info)
 
@@ -44,7 +45,7 @@ def nor(aditz):
     return erantzuna
 
 def nornork(aditz):
-    hand = open("nk3.json", "r")
+    hand = open(str(getcwdb()) + "/nk3.json", "r")
     info = hand.read()
     NK3 = loads(info)
     
@@ -774,5 +775,24 @@ def main(verb):
 
     return {"Aditza":verb.verb,"Kasua":kasua, "Modua":modua, "Denbora":denbora, "Nor":verb.nor, "Nori":verb.nori, "Nork":verb.nork}
 
+filename = "/verb.ls"
+verbs = []
+
+with open(str(getcwdb()) + filename, "r") as file:
+    verbs = file.read().split("\n")
+
+verbs = list(map(eval, verbs))
+
+currentVerbs = []
+for i in verbs:
+    currentVerbs.append(i["Aditza"])
+
 def analyse(aditz):
-        return main(verb(aditz.lower()))
+    if aditz.lower() in currentVerbs:
+        for i in verbs:
+            if (aditz.lower() == i["Aditza"]):
+                return i
+
+    return main(verb(aditz.lower()))
+
+print(analyse("a"))
