@@ -1,5 +1,5 @@
 from json import loads
-import extra
+from .extra import agintera
 
 class verb:
     def __init__(self, verb):
@@ -725,11 +725,11 @@ def main(verb):
     if nornork(verb) != None:
         return nornork(verb)
 
-    if extra.agintera(verb) != None:
-        return extra.agintera(verb)
+    if agintera(verb) != None:
+        return agintera(verb)
 
-    if extra.subjuntivoa(verb) != None:
-        return extra.subjuntivoa(verb)
+    if subjuntivoa(verb) != None:
+        return subjuntivoa(verb)
     
     baldintza(verb)
 

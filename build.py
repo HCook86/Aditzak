@@ -522,4 +522,5 @@ def build(args):
     #If Kasua does not have a correct value
     else: raise ValueError('Incorrect value for Kasua. Read README.txt or the documentation at https://github.com/HCook86/Aditzak/blob/heroku/README.md for more information')
     return args["Aditza"]
-print(build({'Aditza': None, 'Kasua': 'NOR-NORI', 'Modua': 'Baldintza', 'Denbora': "Oraina", 'Nor': 'gu', 'Nori': 'niri', 'Nork': "zuek"}))
+
+#print(build({'Aditza': None, 'Kasua': 'NOR-NORI', 'Modua': 'Baldintza', 'Denbora': "Oraina", 'Nor': 'gu', 'Nori': 'niri', 'Nork': "zuek"}))
