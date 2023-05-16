@@ -801,5 +801,3 @@ def analyse(aditz):
                 return i
 
     return main(verb(aditz.lower()))
-
-print(analyse("a"))

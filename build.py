@@ -111,16 +111,13 @@ def nork(args):
 
 
 def build(args):
-    #If Aditza isn't None, raise an exception
-    if args["Aditza"] != None:
-        raise ValueError('Incorrect value for Aditza: Aditza always must have the value None. Read README.txt or the documentation at https://github.com/HCook86/Aditzak/blob/heroku/README.md for more information')
-    else:
-        args["Aditza"] = ""
+    
+    args["Aditza"] = ""
 
     if args["Kasua"] == "NOR":
         if args["Nork"] != None or args["Nori"] != None:
             raise ValueError('Incorrect value for Nork and/or Nori: If Kasua = Nor, Nork and Nori must be = None. Read README.txt or the documentation at https://github.com/HCook86/Aditzak/blob/heroku/README.md for more information')
-        handler = open("nor.json", "r")
+        handler = open(os.path.join(this_dir, "nor.json"), "r")
         file = loads(handler.read())
         try:
             args["Aditza"] = file[args["Modua"]][args["Denbora"]][args["Nor"]]
@@ -369,7 +366,7 @@ def build(args):
 
     elif args["Kasua"] == "NOR-NORK":
         print("NOR-NORK")
-        handler = open("nk3.json", "r")
+        handler = open(os.path.join(this_dir, "nk3.json"), "r")
         file = loads(handler.read())
         try:
             if args["Nor"] == "hura":
