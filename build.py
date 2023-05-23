@@ -108,7 +108,7 @@ def nork(args):
         verb = args["Aditza"].replace("(nork)", "zue")
         print("zue")
     if args["Nork"] == "haiek":
-        if args["Aditza"].endswith("u(nork)"):
+        if args["Aditza"].endswith("u(nork)") and (args["Nor"] == "haiek" or args["Nor"] == "zuek"):
             verb = args["Aditza"].replace("(nork)", "zte")
         else:
             verb = args["Aditza"].replace("(nork)", "te")
@@ -532,4 +532,4 @@ def build(args):
     else: raise ValueError('Incorrect value for Kasua. Read README.txt or the documentation at https://github.com/HCook86/Aditzak/blob/heroku/README.md for more information')
     return args["Aditza"]
 
-print(build({'Aditza': None, 'Kasua': 'NOR-NORI-NORK', 'Modua': 'Indikatiboa', 'Denbora': "Oraina", 'Nor': 'singularra', 'Nori': "niri", 'Nork': "haiek"}))
+print(build({'Aditza': None, 'Kasua': 'NOR-NORK', 'Modua': 'Indikatiboa', 'Denbora': "Oraina", 'Nor': 'haiek', 'Nori': None, 'Nork': "haiek"}))
