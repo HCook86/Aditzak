@@ -24,7 +24,7 @@ with open(filename, "a") as file:
     writeln(filename, "")
     cmd = ""
     while cmd != "exit":
-        cmd = input()
+        cmd = str(input())
 
         if cmd == "new":
             print("Aditza tiene que ir entero en minusculas")
