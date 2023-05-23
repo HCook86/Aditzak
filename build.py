@@ -47,7 +47,10 @@ def nori(args):
             if args["Denbora"] == "Oraina":
                 print("HERE 2")
                 print(args["Aditza"])
-                verb = args["Aditza"].replace("(nori)", "t")
+                if args["Nork"] == "haiek":
+                    verb = args["Aditza"].replace("(nori)", "da")
+                else:
+                    verb = args["Aditza"].replace("(nori)", "t")
                 print(verb)
             if args["Denbora"] == "Iragana":
                 verb = args["Aditza"].replace("(nori)", "da")    
@@ -529,4 +532,4 @@ def build(args):
     else: raise ValueError('Incorrect value for Kasua. Read README.txt or the documentation at https://github.com/HCook86/Aditzak/blob/heroku/README.md for more information')
     return args["Aditza"]
 
-print(build({'Aditza': None, 'Kasua': 'NOR-NORK', 'Modua': 'Indikatiboa', 'Denbora': "Oraina", 'Nor': 'haiek', 'Nori': None, 'Nork': "haiek"}))
+print(build({'Aditza': None, 'Kasua': 'NOR-NORI-NORK', 'Modua': 'Indikatiboa', 'Denbora': "Oraina", 'Nor': 'singularra', 'Nori': "niri", 'Nork': "haiek"}))
