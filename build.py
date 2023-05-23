@@ -206,8 +206,9 @@ def build(args):
             args["Aditza"] = args["Aditza"] + ("(nori)")
 
             args["Aditza"] = args["Aditza"] + "ke"
+
             
-            if args["Aditza"].startswith("zintzaizki(zuek)"):
+            if args["Aditza"].startswith("zintzaizki(zuek)") or args["Aditza"].startswith("litzaizki"):
                 args["Aditza"] = args["Aditza"].replace("(zuek)", "")
                 args["Aditza"] = args["Aditza"] + "te"
 

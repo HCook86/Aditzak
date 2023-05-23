@@ -794,13 +794,11 @@ currentVerbs = []
 for i in verbsm:
     currentVerbs.append(i["Aditza"])
 
-print(verbsm[0], "SISIISII", currentVerbs)
-
 def analyse(aditz):
-    print(verbsm[0], " AAAAAAAAAAAA", 0)
+
     try:
         i = currentVerbs.index(aditz.lower())
-        print(verbsm[i], " AJKSDBKJASBD", i)
+        
         return verbsm[i]
     except:
 
