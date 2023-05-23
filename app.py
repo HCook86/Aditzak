@@ -307,7 +307,7 @@ def indikativoPersonas(aditz):
             if aditz.lehen == False:
 
                 if v.startswith("dizki"):
-                    aditz.nor = "plulara"
+                    aditz.nor = "plurala"
                     v = remove_prefix(v, "dizki")
                 else:
                     aditz.nor = "singularra"
@@ -801,5 +801,3 @@ def analyse(aditz):
                 return i
 
     return main(verb(aditz.lower()))
-
-print(analyse("a"))
