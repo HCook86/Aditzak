@@ -783,21 +783,25 @@ def main(verb):
     return {"Aditza":verb.verb,"Kasua":kasua, "Modua":modua, "Denbora":denbora, "Nor":verb.nor, "Nori":verb.nori, "Nork":verb.nork}
 
 filename = "verb.ls"
-verbs = []
+verbsm = []
 
 with open(os.path.join(this_dir, filename), "r") as file:
-    verbs = file.read().split("\n")
+    verbsm = file.read().split("\n")
 
-verbs = list(map(eval, verbs))
+verbsm = list(map(eval, verbsm))
 
 currentVerbs = []
-for i in verbs:
+for i in verbsm:
     currentVerbs.append(i["Aditza"])
 
-def analyse(aditz):
-    if aditz.lower() in currentVerbs:
-        for i in verbs:
-            if (aditz.lower() == i["Aditza"]):
-                return i
+print(verbsm[0], "SISIISII", currentVerbs)
 
-    return main(verb(aditz.lower()))
+def analyse(aditz):
+    print(verbsm[0], " AAAAAAAAAAAA", 0)
+    try:
+        i = currentVerbs.index(aditz.lower())
+        print(verbsm[i], " AJKSDBKJASBD", i)
+        return verbsm[i]
+    except:
+
+        return main(verb(aditz.lower()))
