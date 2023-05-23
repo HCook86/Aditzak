@@ -47,7 +47,10 @@ def nori(args):
             if args["Denbora"] == "Oraina":
                 print("HERE 2")
                 print(args["Aditza"])
-                verb = args["Aditza"].replace("(nori)", "t")
+                if args["Nork"] == "haiek":
+                    verb = args["Aditza"].replace("(nori)", "da")
+                else:
+                    verb = args["Aditza"].replace("(nori)", "t")
                 print(verb)
             if args["Denbora"] == "Iragana":
                 verb = args["Aditza"].replace("(nori)", "da")    
@@ -105,7 +108,10 @@ def nork(args):
         verb = args["Aditza"].replace("(nork)", "zue")
         print("zue")
     if args["Nork"] == "haiek":
-        verb = args["Aditza"].replace("(nork)", "te")
+        if args["Aditza"].endswith("u(nork)"):
+            verb = args["Aditza"].replace("(nork)", "zte")
+        else:
+            verb = args["Aditza"].replace("(nork)", "te")
         print("e")
     return verb
 
@@ -429,6 +435,7 @@ def build(args):
         elif "(zuek)" in args["Aditza"]:
             args["Aditza"] = args["Aditza"].replace("(zuek)", "") + "te"
 
+
         if args["Modua"] == "Ondorioa" and (args["Nor"] == "gu" or args["Nor"] == "zu"):
             args["Aditza"] = args["Aditza"] + "z"
 
@@ -492,6 +499,7 @@ def build(args):
         else:
             if args["Nor"] == "plurala":
                 args["Aditza"] = args["Aditza"] + "zki" 
+        
         args["Aditza"] = args["Aditza"] + "(nori)"
 
         args["Aditza"] = nori(args)
@@ -524,4 +532,4 @@ def build(args):
     else: raise ValueError('Incorrect value for Kasua. Read README.txt or the documentation at https://github.com/HCook86/Aditzak/blob/heroku/README.md for more information')
     return args["Aditza"]
 
-#print(build({'Aditza': None, 'Kasua': 'NOR-NORI', 'Modua': 'Indikatiboa', 'Denbora': "Oraina", 'Nor': 'gu', 'Nori': 'niri', 'Nork': "zuek"}))
+print(build({'Aditza': None, 'Kasua': 'NOR-NORI-NORK', 'Modua': 'Indikatiboa', 'Denbora': "Oraina", 'Nor': 'singularra', 'Nori': "niri", 'Nork': "haiek"}))
