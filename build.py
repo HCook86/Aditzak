@@ -447,7 +447,7 @@ def build(args):
             if args["Nork"] == "hik":
                 args["Aditza"] = args["Aditza"] + "hi"
             if args["Nork"] == "hark":
-                if args["Denbora"] == "Hipotetikoa":
+                if args["Denbora"] == "Hipotetikoa" or args["Modua"] == "Baldintza":
                     args["Aditza"] = args["Aditza"] + "li"    
                 else:
                     args["Aditza"] = args["Aditza"] + "zi"  
@@ -458,7 +458,7 @@ def build(args):
             if args["Nork"] == "zuek":
                 args["Aditza"] = args["Aditza"] + "zeni(zuek)"
             if args["Nork"] == "haiek":
-                if args["Denbora"] == "Hipotetikoa":
+                if args["Denbora"] == "Hipotetikoa" or args["Modua"] == "Baldintza":
                     args["Aditza"] = args["Aditza"] + "li(haiek)"    
                 else:
                     args["Aditza"] = args["Aditza"] + "zi(haiek)"    
