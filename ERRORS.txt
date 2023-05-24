@@ -8,6 +8,9 @@ LIST OF ALL KNOWN ERRORS IN THE PROGRAM TO FIX:
   
   CODE:
 
+#1 build
+
+diezadakezue
 
   
   
