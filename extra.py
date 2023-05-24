@@ -269,6 +269,9 @@ def agintera(aditz):
                 aditz.nor = "singularra"
                 v = remove_prefix(v, "ieza")
 
+            if v.startswith("zue"):
+                aditz.nori = "zuei"
+                v = remove_prefix(v, "zue")
             if v.startswith("zu"):
                 aditz.nori = "zuri"
                 v = remove_prefix(v, "zu")
@@ -287,9 +290,6 @@ def agintera(aditz):
             if v.startswith("gu"):
                 aditz.nori = "guri"
                 v = remove_prefix(v, "gu")
-            if v.startswith("zue"):
-                aditz.nori = "zuei"
-                v = remove_prefix(v, "zue")
             if v.startswith("ie") or v.startswith("e"):
                 aditz.nori = "haiei"
                 v = remove_prefix(v, "ie")

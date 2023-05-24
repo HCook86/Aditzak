@@ -52,7 +52,7 @@ def nori(args):
         if args["Modua"] == "Subjuntiboa":
             verb = args["Aditza"].replace("(nori)", "da")
         if args["Modua"] == "Agintera" or args["Modua"] == "Baldintza":
-            if args["Aditza"].endswith("te"):
+            if args["Aditza"].endswith("te") or args["Nork"] == "zuek":
                 verb = args["Aditza"].replace("(nori)", "da")
             else:
                 verb = args["Aditza"].replace("(nori)", "t")
