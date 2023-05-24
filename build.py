@@ -39,7 +39,7 @@ this_dir = os.path.dirname(this_file)
 #          FALTA POR AÑADIR EL HIPOTÉTICO EN NK3.JSON
 #
 def nori(args):
-    verb = None
+    verb = ""
     if args["Nori"] == "niri":
         if args["Modua"] == "Indikatiboa":
             if args["Denbora"] == "Oraina":
@@ -79,7 +79,7 @@ def nori(args):
     return verb
 
 def nork(args):
-    verb = None
+    verb = ""
     if args["Nork"] == "nik":
         verb = args["Aditza"].replace("(nork)", "t")
     """if args["Nork"] == "hik":
