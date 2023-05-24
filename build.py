@@ -112,7 +112,7 @@ def build(args):
         try:
             args["Aditza"] = file[args["Modua"]][args["Denbora"]][args["Nor"]]
         except:
-            args["Aditza"] = None
+            pass
 
     #If the case is NOR-NORI  
     elif args["Kasua"] == "NOR-NORI":
