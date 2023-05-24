@@ -58,9 +58,11 @@ def nori(args):
                 verb = args["Aditza"].replace("(nori)", "t")
         #"HALF IMPLEMENTED"
     if args["Nori"] == "hiri":
-        ValueError("NOT IMPLEMENTED")
+        raise ValueError("NOT IMPLEMENTED")
     if args["Nori"] == "hari":
-
+        print(args)
+        if args["Modua"] == "Agintera":
+            verb = args["Aditza"].replace("(nori)", "io")
         if (args["Modua"] == "Agintera" or args["Modua"] == "Ahalera") and not "i(nori)" in args["Aditza"]:
             verb = args["Aditza"].replace("(nori)", "io")
         else:
@@ -361,7 +363,7 @@ def build(args):
         except:
             args["Aditza"] = ""
             
-        if args["Denbora"] == "Oraina" and args["Modua"] != "Baldintzak" and args["Modua"] != "Ondorioa":
+        if args["Denbora"] == "Oraina" and args["Modua"] != "Baldintzak" and args["Modua"] != "Ondorioa" and args["Modua"] != "Agintera":
             if args["Nor"] == "ni":
                 args["Aditza"] = "na"
             if args["Nor"] == "hi":
@@ -380,6 +382,15 @@ def build(args):
             if args["Nor"] == "haiek":
                 args["Aditza"] = "dit"
         
+        if args["Modua"] == "Agintera":
+            if args["Nor"] == "ni":
+                args["Aditza"] = args["Aditza"] + "na"
+            if args["Nor"] == "hura":
+                args["Aditza"] = args["Aditza"] + "e"
+            if args["Nor"] == "gu":
+                args["Aditza"] = args["Aditza"] + "gait"
+            if args["Nor"] == "haiek":
+                args["Aditza"] = args["Aditza"] + "it"
         if args["Modua"] == "Baldintza":
             args["Aditza"] = "ba"
             if args["Denbora"] == "Iragana":
@@ -402,7 +413,7 @@ def build(args):
 
         if args["Modua"] == "Indikatiboa" or args["Modua"] == "Baldintza" or args["Modua"] == "Ondorioa":
             args["Aditza"] = args["Aditza"] + "u"
-        if args["Modua"] == "Subjuntiboa":
+        if args["Modua"] == "Subjuntiboa" or args["Modua"] == "Agintera":
             args["Aditza"] = args["Aditza"] + "za"
 
         has_zte = ["Indikatiboa", "Baldintza", "Ahalera", "Baldintza", "Ondorioa"]
@@ -427,6 +438,7 @@ def build(args):
                 args["Aditza"] = args["Aditza"] + "en"
             else: 
                 args["Aditza"] = args["Aditza"] + "n"
+
 
     elif args["Kasua"] == "NOR-NORI-NORK":
         if args["Nor"] != "singularra" and args["Nor"] != "plurala":

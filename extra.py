@@ -258,16 +258,20 @@ def agintera(aditz):
                 aditz.nork = "haiek"
 
         if aditz.nik:
-            
-            v = remove_prefix(v, "b")
+
+            if v.startswith("b"):
+                v = remove_prefix(v, "b")
 
             if v.startswith("iezazki"):
-                aditz.nor = "plu"
+                aditz.nor = "plurala"
                 v = remove_prefix(v, "iezazki")
             else:
-                aditz.nor = "sin"
+                aditz.nor = "singularra"
                 v = remove_prefix(v, "ieza")
 
+            if v.startswith("zu"):
+                aditz.nori = "zuri"
+                v = remove_prefix(v, "zu")
             if v.startswith("t") or v.startswith("da"):
                 aditz.nori = "niri"
                 v = remove_prefix(v, "t")
@@ -283,9 +287,6 @@ def agintera(aditz):
             if v.startswith("gu"):
                 aditz.nori = "guri"
                 v = remove_prefix(v, "gu")
-            if v.startswith("zu"):
-                aditz.nori = "zuri"
-                v = remove_prefix(v, "zu")
             if v.startswith("zue"):
                 aditz.nori = "zuei"
                 v = remove_prefix(v, "zue")
@@ -293,6 +294,8 @@ def agintera(aditz):
                 aditz.nori = "haiei"
                 v = remove_prefix(v, "ie")
                 v = remove_prefix(v, "e")
+
+            print(v, " SIISISISI", aditz.nori)
 
             if v == "k":
                 aditz.nork = "hik"
