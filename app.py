@@ -794,7 +794,7 @@ currentVerbs = []
 for i in verbsm:
     currentVerbs.append(i["Aditza"])
 
-def analyse(aditz):
+def analyze(aditz):
 
     try:
         i = currentVerbs.index(aditz.lower())
