@@ -18,3 +18,6 @@ Basic example:
     build({"Aditza":None, "Kasua":"NOR-NORK", "Modua":"Ondorioa","Denbora":"Iragana", "Nor":"ni", "Nori":None, "Nork":"hark"})
     
     analyze("dizkidate")
+
+## Documentation
+
