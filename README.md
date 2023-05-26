@@ -13,7 +13,8 @@ Using pip:
 Basic example:
 
     
-    from Aditzak import builder
+    from Aditzak import build, analyze
 
-    builder({"Aditza":None, "Kasua":"NOR-NORK", "Modua":"Ondorioa","Denbora":"Iragana", "Nor":"ni", "Nori":None, "Nork":"hark"})
+    build({"Aditza":None, "Kasua":"NOR-NORK", "Modua":"Ondorioa","Denbora":"Iragana", "Nor":"ni", "Nori":None, "Nork":"hark"})
     
+    analyze("dizkidate")
