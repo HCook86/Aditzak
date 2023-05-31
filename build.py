@@ -107,8 +107,6 @@ def build(args):
     args["Aditza"] = ""
 
     if args["Kasua"] == "NOR":
-        if args["Nork"] != None or args["Nori"] != None:
-            raise ValueError('Incorrect value for Nork and/or Nori: If Kasua = Nor, Nork and Nori must be = None. Read README.txt or the documentation at https://github.com/HCook86/Aditzak/blob/heroku/README.md for more information')
         handler = open(os.path.join(this_dir, "nor.json"), "r")
         file = loads(handler.read())
         try:
